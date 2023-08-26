@@ -4,10 +4,12 @@ import {
 
     MaterialIcons
   } from '@expo/vector-icons';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { Link } from 'expo-router';
 const MenuOption = ({item}) => {
     return (
-      <View style={styles.optionRow}>
+      <Link href={item.href} asChild>
+      <Pressable style={styles.optionRow}>
         <MaterialCommunityIcons name={item.iconName} size={26} color="gray" />
         <Text style={styles.optionText}>{item.name}</Text>
         <MaterialIcons
@@ -16,7 +18,9 @@ const MenuOption = ({item}) => {
           color="gray"
           style={{ marginLeft: 'auto' }}
         />
-        </View>
+        </Pressable>
+      </Link>
+      
     )
   }
 
